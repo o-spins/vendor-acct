@@ -1,0 +1,92 @@
+import tkinter as tk
+from tkinter import ttk
+
+
+def anotha_one(root):
+    row_y = 130
+
+    new = tk.Label(root)
+    new.place(x=10, y=row_y)
+    ent = tk.Entry(root)
+    ent.place(x=120, y=row_y)
+
+    new2 = tk.Label(root)
+    new2.place(x=10, y=row_y + 30)
+    ent = tk.Entry(root)
+    ent.place(x=120, y=row_y + 30)
+
+    row_y += 60
+
+
+def stupid(root):
+    butt = tk.Button(root, text="Add Another Vendor...", command=anotha_one(root))
+    butt.place(x=300, y=250)
+
+
+def amount(root):
+    amount_label = tk.Label(root, text="Amount:    $")
+    amount_label.place(x=27, y=150)
+
+    amount_text = tk.Text(root, width=10, height=1)
+    amount_text.place(x=100, y=150)
+
+
+def vendor(root):
+    label = tk.Label(root, text="Vendor:")
+    label.place(x=32, y=120)
+
+    var = tk.StringVar()
+    dropdown = ttk.Combobox(root, textvariable=var)
+    dropdown['values'] = ["Ferguson", "Jensen", "Reece"]
+    dropdown.place(x=100, y=120)
+
+
+def job_name(root):
+    label = tk.Label(root, text="Job Name:")
+    label.place(x=18, y=70)
+
+    txt = tk.Text(root, width=30, height=1)
+    txt.place(x=100, y=70)
+
+
+def job_num(root):
+    label = tk.Label(root, text="Job#:")
+    label.place(x=45, y=47)
+
+    txt = tk.Text(root, width=10, height=1)
+    txt.place(x=100, y=45)
+
+
+def estimator(root):
+    estimators = ["Adam", "Nathaniel"]
+
+    label = tk.Label(root, text="Estimator:")
+    label.place(x=20, y=20)
+
+    var = tk.StringVar()
+    dropdown = ttk.Combobox(root, textvariable=var)
+    dropdown['values'] = estimators
+    dropdown.place(x=100, y=20)
+
+
+def window():
+    root = tk.Tk()
+    root.geometry("600x700")
+    root.title("Vendor Account Tracker")
+
+    estimator(root)
+    job_num(root)
+    job_name(root)
+    vendor(root)
+    amount(root)
+    stupid(root)
+
+    root.mainloop()
+
+
+def main():
+
+    window()
+
+
+main()
